@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<meta charset="utf-8">
+
+<head>
+  <link rel="stylesheet" href="./milligram.css">
+  <!-- <link rel="stylesheet" href="./index.css"> -->
+  <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
+  <title>naming Conveter</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h4>2DiffJson</h4>
+        <h6>2つのJSONファイルの差分をみつけて表示します</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column columns-100 card">
+        <label for="selectCase">selectCase</label>
+        <select id="selectCase">
+          <option></option>
+          <option value="0">toCamel</option>
+          <option value="1">toSnake</option>
+          <option value="2">toPascal</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column columns-50 card">
+        <label for="textField">textField</label>
+        <textarea placeholder="conveter target" class="text-area" spellcheck="false" id="textField"></textarea>
+        <!-- <span id= "textFieldError" class="text-ield-error">エラー：JSON形式ではありません</span> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="column columns-50 card">
+        <textarea placeholder="result" class="text-area" spellcheck="false" id="result"></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
