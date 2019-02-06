@@ -43,12 +43,8 @@ selectCase.addEventListener('change', (ev) => {
   if (Number.isNaN(selectValue) || value == null) return;
   const convertFunc = conveterMapper[selectValue];
 
-  if (CASES.Pascal === selectValue) {
-    const splitValues = value.split(/\n/);
-    resultElem.innerText = splitValues
-      .map((val) => convertFunc(val.trim()))
-      .join('\n');
-  } else {
-    resultElem.innerText = convertFunc(value.trim());
-  }
+  const splitValues = value.split(/\n/);
+  resultElem.innerText = splitValues
+    .map((val) => convertFunc(val.trim()))
+    .join('\n');
 });
