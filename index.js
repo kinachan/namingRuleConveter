@@ -36,15 +36,32 @@ const textFields = document.getElementById('textField');
 const selectCase = document.getElementById('selectCase');
 const resultElem = document.getElementById('result');
 
-selectCase.addEventListener('change', (ev) => {
-  const selectValue = parseInt(ev.target.value);
-  const value = textFields.value;
 
-  if (Number.isNaN(selectValue) || value == null) return;
+const convertRun = (selectValue, text) => {
+  if (Number.isNaN(selectValue) || text == null) return;
   const convertFunc = conveterMapper[selectValue];
 
-  const splitValues = value.split(/\n/);
-  resultElem.innerText = splitValues
-    .map((val) => convertFunc(val.trim()))
-    .join('\n');
+  const splitValues = text.split(/\n/);
+  resultElem.innerHTML = splitValues
+    .map(val => renderLiElement(val, convertFunc))
+    .join('');
+}
+
+textFields.addEventListener('change', ev => {
+  const text = ev.target.value;
+  const selectValue = parseInt(selectCase.value);
+
+  convertRun(selectValue, text);
 });
+
+selectCase.addEventListener('change', (ev) => {
+  const selectValue = parseInt(ev.target.value);
+  const text = textFields.value;
+
+  convertRun(selectValue, text);
+});
+
+
+const renderLiElement = (val, convertFunc) => {
+  return `<li>${convertFunc(val.trim())}</li>`;
+}
