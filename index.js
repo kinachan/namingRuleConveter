@@ -2,6 +2,7 @@ const CASES = {
   Camel: 0,
   Snake: 1,
   Pascal: 2,
+  Constant: 3,
 }
 
 const converter = {
@@ -22,6 +23,11 @@ const converter = {
   toPascalCase(str) {
     const camel = converter.toCamelCase(str);
     return camel.charAt(0).toUpperCase() + camel.slice(1);
+  },
+
+  toConstant(str) {
+    const snake = converter.toSnakeCase(str);
+    return snake.toUpperCase();
   }
 }
 
@@ -29,6 +35,7 @@ const conveterMapper = {
   [CASES.Camel]: converter.toCamelCase,
   [CASES.Snake]: converter.toSnakeCase,
   [CASES.Pascal]: converter.toPascalCase,
+  [CASES.Constant]: converter.toConstant,
 }
 
 // html elements
